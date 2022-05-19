@@ -1,0 +1,7 @@
+com\eBanking\utilities\Reporting.class
+com\eBanking\utilities\ReadConfig.class
+com\eBanking\pageObjects\LogInPage.class
+com\eBanking\testCases\BaseClass.class
+com\eBanking\testCases\TC_LoginDDT_002.class
+com\eBanking\utilities\XLUtils.class
+com\eBanking\testCases\TC_LogInTest_001.class

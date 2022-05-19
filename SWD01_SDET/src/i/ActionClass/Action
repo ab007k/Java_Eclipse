@@ -1,0 +1,23 @@
+//ActionClass//
+	>>Actions act=new Actions(dr);
+	//mouseover//
+		>act.moveToElement(Admin).build().perform(); //mouseover to admin tab		
+		>act.moveToElement(UserM).build().perform(); //mouseover to UserM tab
+		>act.moveToElement(User).click().build().perform(); //mouseover to User and click the option.
+		
+		>One line code for above three step
+		->act.moveToElement(Admin).moveToElement(UserM).moveToElement(User).click().build().perform();
+	
+	//RightClick//
+		>act.contextClick(RightClickMe).build().perform();
+	
+	//dragAndDrop//
+		>act.clickAndHold(source).moveToElement(target).release().build().perform();
+		>act.dragAndDrop(source, target).build().perform();
+		
+	//slider//
+		>act.moveToElement(slider).dragAndDropBy(slider, 300, 0).build().perform();
+	
+	//resizable//
+		>act.moveToElement(resizable).dragAndDropBy(resizable, 75, 75).build().perform();//MoveTargetOutOfBoundsException:if SizeOfOffset OutOFRange
+		
