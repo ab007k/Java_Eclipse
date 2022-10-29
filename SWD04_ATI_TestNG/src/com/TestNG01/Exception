@@ -1,0 +1,15 @@
+>>java.lang.IllegalStateException: The driver executable must exist: D:\@Qspider\Java_Eclipse\SWD04_ATI_TestNG\.\driver\chromedriver.exe
+
+>>org.openqa.selenium.SessionNotCreatedException: Could not start a new session. Response code 500. Message: session not created:
+This version of ChromeDriver only supports Chrome version 99
+Current browser version is 101.0.4951.67
+>>Solution:Use Updated Driver  101.0.4951.41 or
+add WebDriverManager jar & WebDriverManager.chromedriver().setup(); <use instead of> System.setProperty()
+
+?May 20, 2022 9:08:07 PM org.asynchttpclient.netty.handler.WebSocketHandler handleException
+WARNING: onError
+java.net.SocketException: Connection reset
+?May 20, 2022 9:08:07 PM org.openqa.selenium.remote.http.WebSocket$Listener onError
+WARNING: Connection reset
+java.net.SocketException: Connection reset
+

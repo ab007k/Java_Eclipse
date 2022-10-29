@@ -1,0 +1,7 @@
+>>org.testng.internal.reflect.MethodMatcherException: 
+>>[public void com.testNG05parameterization02.TestWithDataProviderAnno.launchApp(java.lang.String)] 
+has no parameters defined but was found to be using a data provider 
+(either explicitly specified or inherited from class level annotation).
+>>Data provider mismatch
+>>Method: launchApp([Parameter{index=0, type=java.lang.String, declaredAnnotations=[]}])
+Arguments: [(java.lang.String) Username,(java.lang.String) Password]

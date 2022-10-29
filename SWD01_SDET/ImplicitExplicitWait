@@ -1,0 +1,11 @@
+<ImplicitWait>
+//The method implicitlyWait(long, TimeUnit) from the type WebDriver.Timeouts is deprecated.(in Selenium v3.11) and above		
+//dr.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+//Now:>dr.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+<ExplicitWait>
+//The constructor WebDriverWait(WebDriver, long) is deprecated
+//WebDriverWait wait=new WebDriverWait(dr,10);
+//Now:>WebDriverWait wait=new WebDriverWait(dr,Duration.ofSeconds(10));
+
+Ctrl+F:>Find and Replace			

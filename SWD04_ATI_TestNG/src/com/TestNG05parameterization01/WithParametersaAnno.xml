@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="ParameterationWithParameterAnno">
+  <test thread-count="5" name="TestWithParametersAnno">
+<parameter name="url" value="http://127.0.0.1/login.do"></parameter>
+<parameter name="uname" value="admin"></parameter>
+<parameter name="pword" value="manager"></parameter>
+    <classes>
+      <class name="com.testNG05parameterization01.WithParametersAnno"/>
+    </classes>
+  </test> <!-- TestWithParametersAnno -->
+</suite> <!-- ParameterationWithParameterAnno -->

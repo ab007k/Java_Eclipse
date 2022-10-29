@@ -1,0 +1,87 @@
+#-Its not done perfectly.
+EmailId:ebanking@gmail.com
+User ID :	mngr399533
+Password :	emezApU
+
+ImpNote:Project Home Directory path shortcuts
+./ represent project home directory:use in java classes as well as in properties
+System.getProperty("user.dir"):use only in java classes
+eg:System.setProperty(" ",System.getProperty("user.dir")+"//drivers//chromedriver.exe");
+java class accept only forward slashes
+properties file accept only backward slashes
+@FrameworkSteps@
+1) Create Maven project and also create repo/folder structure.
+
+2) Update pom.xml:selenium,TestNG,ApachePOI,ExtentsReport,
+   ApacheCommon-lang3 & ApacheCommon-io
+
+3) Create PageObject
+
+4.1) Create BaseClass
+4.2) Create TC
+
+5) Add logs to TC:#(why log folder create empty?)#
+>log4j.jar,
+>log4j.properties:its the part of ur project home directory, so thats the reason, these outside complete all the packages.
+>First go into BaseClass and then into setup():set following two config stub
+>Create Logger Class object and initiate it by Logger.getLogger("specify name of ur project")
+>also we need to use:PropertyConfigurator.configure("specify here:log4j.properties")
+>Now come to ur TC, so in the TC we need to add log msg for every steps.
+
+6)Read commom values from properties file
+>properties file is something like text file and which contains a all the variables which are required for ur project.
+>Even in Base class also we should not hardcode these value(var);
+>To maintain all the commomn var we maintain properties file that is config.properties
+>In config.properties file we have to put all the var along with value.
+>To read the value from config.properties, We have to write one more file that is Utility file that is ReadConfig.java
+>config.properties[list of var with value]
+>ReadConfig.java[read var value through method and provide to BaseClass or OtherClass]
+>BaseClass/OtherClass:don't hardcode var
+
+7)Run the TC on desired browser#(It will not work for FF & IE)#
+>TC:create a launchBrowser(String br)
+>XML file pass browser as a parameter in above method with the help of @Parameters("browser")
+>Currently the launching mechanism is the part of our BaseClass
+>so in the base class we slightly update/modify the setup() method 
+>Steps:
+>Write @Parameters("browser") annotation before @Before annotation
+>This Parameter Annotation help to take the browser parameter from XML file(We need to define parameter in XML file:chrome/firefox/ie)
+>setup(String br):This method capture the parameter
+>Base on parameter condition it will launch the browser.
+
+8.1)Add Extent Report(#What are changes 3.1.2->5.0.9 ExtentHtmlReporter)
+>Add jars/dependancy
+>extent-config.xml
+>ListenerClass(Reporting.java)-->Utilyty File
+Note:Suppose if you hardcode some report name for ex:MyReport.html, 
+everytime when u run ur TestCase/TestSuit, with same name report will be created and old report will be override.
+so to avoid this whenever u created report, u have to save that report with some time stamp. 
+>add listener tag entry into TestNG.xml file
+>Where u add: Before test tag
+>Here we need specify fully qualified name of listner class
+
+8.2)Take Screenshot on Test Failure(#failed to take Screenshots#)
+>Create captureScreen() method inside BaseClass
+>Call this method inside TC on TestCase Failure
+>After taking the Screenshot it will store into Screenshots folder
+>Take screenshot from this folder and attached to report on TC failure.
+
+9)DDF:Create Data Driven TC
+>Required 3 things: ApachePOI(3.17->5.2.2), XLUtils.java, XLSX file(test data)
+>Create TC.java extends BaseClass
+>We need to  write here 2 method: 
+1)test method:loginDDT()
+2)data provider method:getData():it will provide the data to test method.
+(Launching and all other common things done by the BaseClass)
+
+Diff bet Utility and Base Class:
+Utility:
+>Utilyty means a supported File/Class for all TC,
+so thats the reason we have put them in separate category.
+>To perform DDF:Excel.util:it contain methods we reuse those methods. 
+>To generate Report:Listener
+
+BaseClass:
+>In the Base Class we have put some method along with annotation,
+but in Utilily Class we dont have any annotation.
+>Without having base class also we can perform the TC, but without having Utility file/class we can not create TC.

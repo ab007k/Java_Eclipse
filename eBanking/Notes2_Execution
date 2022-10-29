@@ -1,0 +1,191 @@
+CI:Execution and Maintenance
+Phase2:Execution
+Use of pom.xml:
+>dependancies:automatically download all the jar files required for your project
+>pom.xml>TestNG.xml>TC
+>Through this pom.xml itself we can run the TestNG.xml and TestNG.xml execute all the TC
+>Later we have to run complete framework without using Eclipse through cmd prompt/Jenkins thats the reason pom.xml is very very useful.
+
+1)Run TC using pom.xml(within eclipse)
+>In pom.xml there are two kinds of entries:
+>1)dependancies
+>2)plugin:There are two kinds of plugin we have, we need to add those two plugin in your pom.xml 
+& then we will able to run TestNG.xml through pom.xml
+>compiler plugin
+>surefire plugin
+>Add this two between properties and dependancies tag(u can add after dependancies)
+>Once u have added these plugin,refresh ur project one time
+>Right Click on Project>Maven>UpdateProject>>OK
+>Right Click on pom.xml>Run as>6Maven test
+>3Maven clean:it will clean up all the previous logs, execution stub, after clean up u need to Run the Maven test
+
+https://roufid.com/no-compiler-is-provided-in-this-environment/
+Error:[ERROR] No compiler is provided in this environment. Perhaps you are running on a JRE rather than a JDK?
+Sol:>Goto:Eclipse>Window>Preferences>>Java>Installed JREs:Here u should have entry with jdk.
+>Here if u see in ur Eclipse by default sometime u will see jre instead of jdk.
+>if u having jdk no issue but that depend on Eclipse, sometime it will run on jre or sometime it will run on jdk
+>when u have jre,that will provide only few config file.
+>Maven project can not run by using those config file
+>if u want to run ur Maven completly then u need jdk, not jre
+
+2)Run test cases through Maven CLI(Command Line Interface)(without Eclipse)
+>>Maven having two type
+1>Maven we have installed within Eclipse as a plugin
+2>Maven installed on OS(Operating System)
+>Download for OS(Whatever u have)tar.gz>for Unix/Linix envi, zip>for windows envi
+>Copy and Paste it into C drive
+>Configuration:we need to set some environment variable just like a java
+>Goto till bin folder and copy the path/location(this is ur Home Directory)
+>RightClick on This PC>Properties>Advanced system settings>Environment Variables>System variable>Path,M2_HOME
+Note:[M2_HOME:Even though if u run ur project through cmd promt u may get the same Error,to solve this u have to do this(its optional)]
+>https://roufid.com/no-compiler-is-provided-in-this-environment/
+
+Steps to run in cmd:
+1)RightClick on Project to get location>navigate to this location
+cd D:\@Qspider\Java_Eclipse\eBanking
+//dir-it will show pom.xml,TestNG.xml
+//cls
+2)mvn clean install
+
+3)Run test cases through run.bat(This file contain batch command)(bat:executable batch file)
+>Goto your project location:D:\@Qspider\Java_Eclipse\eBanking
+>here in the project location itself Create one bat file run.bat(text>bat)
+>Open run.bat:RightClick>Edit with Notepad++ or Edit 
+>Copy and paste following Commands inside the run.bat and then save it.
+cd D:\@Qspider\Java_Eclipse\eBanking
+mvn clean install
+>Double click on run.bat to Run this file
+>If you are going through this approach,we no need to write this two command manually every time,
+with single click your complete framework will be executed,no configuration nothing is required.
+>Inshort:Create run.bat file contain with "cd D:\@Qspider\Java_Eclipse\eBanking" "mvn clean install" this two command.
+
+4)Run test cases through Jenkins
+Ref:Screenshot Fig:
+CI:Normally in real time envi there are two team working togather for one project:QA and Dev
+>Dev people working on diff module m1,m2,m3
+>QA people auomating TC in there Eclipse,,here also automation code A1,A2,A3
+>Between this two team there will be one Team Devops Team,it will just facilate QA as well as Dev Team
+>Devops will shared task from QA as well as Dev
+>Devops team will do some jobs from QA and some jobs from Dev
+>At the end of the day,Dev people will keep that code in some common location
+>Common location nothing but the repo
+>Normally they are use Git(local repo) and Github(remote repo)
+>At the end of the day,what the developer will do is,they will check in there code in the same repo
+>Devops will automatically pick that code, they  will create the build(integrate all the code and make exe file).
+>How the Devops will do this? Through automation only
+>Creation of the build will be done by using Maven
+>Def:Maven is the build tool so actually used by Devops team, 
+but there are some feature which is useful for automation so we are use Maven in our Automation.
+>QA team also have one common repo,every Automation tester they dont keep there code in there Eclipse,
+they will keep entire code in particular same repo(Git,Github)
+>And From there Devops team will pick our Automated Test Cases and 
+using Jenkins Tool they will run our test cases
+>As soon as Build is created immediately they will also run our test cases through Jenkins
+>What kind of test cases they will run sanity and smoke test cases, 
+very basic functional test cases they will run to make the build is stable.
+>So once the build is stable or automation is pass in Jenkins then automatically 
+>Jenkins is having email configuration,as soon as ur test cases pass in jenkins everybody will get the email like Build Success.
+>And then we need to login to the Jenkins and we can download the Build from Jenkins itself(QA always download the build from jenkins itself)
+>Everyday at end of the day the developer will check in the code and throughout the night Devops will create the build and run our Jenkins 
+>Everything will be done throughout the one night and when you come to the next day morning, ur Buid will be success or failed some email will be ready for you
+>As soon as we have seen email then you can directly download that build, and u can test the rest of the functionality in QA environment
+>This is called CI process
+>Sometime for one day itself will get 2/3 build,so as soon as build is created immediately our Jenkins will trigger the automation
+>So we can also create the no of jobs here,time waste it will execute automatically.
+>This is the Job actually done by Devops team but as a QA Engineer what we need to do is, we have to setup this Jenkins.
+>Jenkins will always installing in Devops Environment not in the QA Environment.
+>We have to congigure the Jenkins with our automation tool
+>This is exact CI process.
+
+>>>Run test cases through Jenkins<<<
+>Install & Configure(see screenshot)
+>url:http://localhost:8080(we can use ip address of ur system)
+>It always run on 8080 port no.
+
+1>Execute project using free style project(run.bat)->for Practicing we use
+2>Execute project using Maven(pom.xml)->RealTime we use
+
+1>>Execute project using free style project(run.bat)
+>NewItem>Enter an Item Name>Select FreeStyleProject>OK
+>Build>AddBuildStep:>Execute Windows batch Command(For linux/unix:Execute shell:run.sh file)
+>Command:cd D:\@Qspider\Java_Eclipse\eBanking
+         run.bat
+         Apply>Close
+>As soon as close>Redirect to project dashboard
+>BackToDashboard>here we will see new entry
+>For run:Click on Created Project>Build Now(LHN) or There is one dropdown use this
+>Imp:Whenever running ur Project in Jenkins this is completly seamless
+(seamless is nothing but u can not see any UI,everything will happen in backend itself that is called as seamless execution process.
+>Only we can see log msg'es,by reading log msg'es we will understand what is happening in the backend.
+
+>>Why the Jenkins not shown the any Screen/UI?
+Ans:Normally the Jenkins will run on Devops environment because Jenkins is owning by Devops team not a QA team.
+When run my project through the Jenkins,so may be the Devops server,dont have the configuration,
+they dont have the application,the dont have a project folder nothing there,
+if u have everything is ready,then go and execute in there environment.
+They dont to need see any screen in there environment,so thats the reason our project is become seamless.
+
+Note:You don't need set environment variable for the FreeStyleProject(by default Jenkins take java envi)
+
+2>>Execute project using Maven(pom.xml)
+>Steps For Install Mave Plugin in  Jenkins:
+:>Dashboard>ManageJenkins>ManagePlugin>Available(Select For Maven out of present there)>Install without restart
+>To do this,We need to do certain settings:configure JAVA_HOME path
+:>Dashboard> ManageJenkins>GlobalToolConfiguration>JDK:JDKinstallatins>JAVA_HOME>Apply&Save
+>Steps:
+:>New Item>Provide Name Of Project>Maven Project>OK
+:>while configuring your project:Go to build section>Specify Path Of pom.xml & set Goals and Options
+Root POM:D:\@Qspider\Java_Eclipse\eBanking
+Goals and Options:clean install
+>Go to Dashboard u can see new project is created.
+>Dropdown:Click on BuildNow
+
+RealTime:
+>Ref:Screenshot fig
+>Project Execute By Diff Way:Eclipse, Cmd, run.bat, pom.xml, Jenkins
+>When you run your project in Jenkins, What are the path configuring in Jenkins?
+>Currently local path(because currently project and Jenkins both are in youe local system),so there is no issue when ur practicing.
+>But in real time there will be some issue, so in real time what will be the scenario:
+>Jenkins will be installed in the Devops server.
+>Project will be in your local server.
+>In that case local  path will not work in Jenkins.
+>How we can solve this problem?
+>FirstWay:Either move your complete project in Jenkins server,then Jenkins we can configure there local path,
+but this is not effective.(But if small company they dont have much budget,they will do this approach)
+>SecondWay:But if budget is more they will maintain the repository for store your project,
+we will put our complete project/daily work at the end of day in repository(This is common location from where everybody can access)
+>So Devops team will get that location and specify that location in the Jenkins
+>Eventhough project is not in Devops server still there is no issue because this is just like cloud server,just like a google drive(access by using url)
+>Normally this repo are:Git(Local), Github(Remote)
+>From the Github it will automatically get the project by using url,that url we have to specify in the Jenkins
+and Jenkins automatically get complete project by using url then it will able to execute.
+>In that way the problem will be solved.
+
+>Even the developer also will be do same the thing.
+>They will keep everything in the repository(Git,Github)
+>and Maven get entire thing using url.
+
+>We will just  get the url of the Jenkins, so we able to access the Jenkins by using url,
+they will give the ip address of there Jenkins Server(ipaddress:8080), so we are able to access Jenkins in our system.
+>But whenever we are creating FreeStyle or Maven project in our system, 
+we should not specify the  local path(it will not accept the local path).
+>Even though if you are specify your local path, it will be failed..Why?
+:>Because in real time jenkins will be installed in Devops server,not in your local server.
+
+>Everyday Jenkins will run, everyday somehow we will do some work, as soon as we completed test cases,we will contiously check in our code in repository,
+as soon as whatever the latest code is available, jenkins will pick up that latestcode every day and will execute, so this is continuous peocess
+lly everyday from the developer  get the new code, everyday they will create the new build and every our Jenkins will run on the build,this is cont.process 
+this is called continuous integration.
+
+>There is only one repo for one project, in that repo there are two folder one is for Testing, and one is for Developer.
+
+
+
+ 
+
+
+
+
+
+
+

@@ -1,0 +1,19 @@
+#HardAssert:if HardAssertion getting failed:
+>TC terminated immeadietly,set the status as Failed!
+>UseAt:OpenBrowser,OpenUrl,LogIn like that place where we can use HardAssert
+>Syntax:Assert.assertEquals(actual, expected, msg);
+
+#SoftAssert:if SoftAssertion getting failed:
+>TC not terminate,it will execute remaining line of code,but set the status as Passed!
+>if you want Actual Status if SoftAssertion getting Failed,so for that we need to use:assertAll();
+
+>ProcedureToUse:
+1.Create new instance of Object SoftAssert 
+ (separate for each TC:to avoid previous TC result in next TC)
+>Syntax:SoftAssert softAssert1 = new SoftAssert();
+ 
+2.Write a Statement at the end of TC:
+>Syntax:softAssert1.assertAll();
+>This Statement mark the TC as Failed, if any softAssertion getting failed.
+
+	

@@ -1,0 +1,19 @@
+Sleep(500)
+ControlFocus("Open","","Edit1")
+Sleep(500)
+ControlSetText("Open","","Edit1",$CmdLine[1])
+Sleep(500)
+ControlClick("Open","","Button1")
+Sleep(500)
+
+>"C:\Program Files (x86)\AutoIt3\SciTE\..\AutoIt3.exe" "C:\Program Files (x86)\AutoIt3\SciTE\AutoIt3Wrapper\AutoIt3Wrapper.au3" /ShowGui /prod /in "D:\@Qspider\AutoIT_file\Chhatrapati.au3"
++>16:20:06 Starting AutoIt3Wrapper (21.316.1639.1) from:SciTE.exe (4.4.6.0)  Keyboard:00004009  OS:WIN_10/  CPU:X64 OS:X64  Environment(Language:0409)  CodePage:0  utf8.auto.check:4
++>         SciTEDir => C:\Program Files (x86)\AutoIt3\SciTE   UserDir => C:\Users\amolbhakde\AppData\Local\AutoIt v3\SciTE\AutoIt3Wrapper   SCITE_USERHOME => C:\Users\amolbhakde\AppData\Local\AutoIt v3\SciTE 
+-> No changes made..
+>Running AU3Check (3.3.16.0)  from:C:\Program Files (x86)\AutoIt3  input:D:\@Qspider\AutoIT_file\Chhatrapati.au3
++>16:20:10 AU3Check ended.rc:0
+>Running:(3.3.16.0):C:\Program Files (x86)\AutoIt3\aut2exe\aut2exe_x64.exe  /in "D:\@Qspider\AutoIT_file\Chhatrapati.au3" /out "C:\Users\amolbhakde\AppData\Local\AutoIt v3\Aut2exe\~AUC567.tmp.exe" /nopack /comp 2
++>16:20:12 Aut2exe.exe ended.C:\Users\amolbhakde\AppData\Local\AutoIt v3\Aut2exe\~AUC567.tmp.exe. rc:0
++>16:20:12 Created program:D:\@Qspider\AutoIT_file\Chhatrapati.exe
++>16:20:13 AutoIt3Wrapper Finished.
+>Exit code: 0    Time: 7.012

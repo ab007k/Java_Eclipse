@@ -1,0 +1,14 @@
+$What is testng.xml?
+>>configuration file.
+>>used to defined test suites and tests.
+>>It provide diff options to include packages,classes and independent test methods in our test suite.
+>>It also allows us to configure multiple tests in a single test suite and run them in multi threaded environment.
+
+$How to generate?
+>>RightClick(Class/Package/Project)>>TestNG>>ConvertToTestNG
+>>Note:Whenever we generate xml file for package,it will not add classes where TC is not present.
+and also it will not add such classes where @Test at class level.
+
+$How to create manually testng.xml?
+>>File>>New>>File:>(EnterName:testng.xml)
+>>RightCLick(Class/Package/Project)>>New>>Other>>File:>(EnterName:testng.xml)

@@ -1,0 +1,58 @@
+https://the-internet.herokuapp.com/   <AllTypeOfElement>
+http://jar-download.com/artifact-search/webdrivermanager/
+https://demo.guru99.com/test/newtours/
+https://demo.nopcommerce.com/
+
+https://goo.gl/kNZ6Sr......not work
+https://www.popuptest.com/popuptest2.html....not work...multiple windows
+https://demo.automationtesting.in/Windows.html....not work...multiple windows
+
+How to handle multiple windows in Selenium?(use for other element also)
+https://www.toolsqa.com/selenium-webdriver/window-handle-in-selenium/
+https://demoqa.com/browser-windows
+
+*****iframe/alert/window*****(use for other element also)
+http://demo.automationtesting.in/Frames.html
+https://www.globalsqa.com/demo-site/frames-and-windows/
+
+*****ActionClass*****
+https://opensource-demo.orangehrmlive.com/
+https://swisnl.github.io/jQuery-contextMenu/demo.html
+http://www.dhtmlgoodies.com/scripts/drag-drop-custom/demo-drag-drop-3.html
+
+
+Handling Web HTML Table
+https://opensource-demo.orangehrmlive.com/
+https://opensource-demo.orangehrmlive.com/index.php/auth/login
+
+Calender:
+https://demos.telerik.com/kendo-ui/datetimepicker/index
+http://127.0.0.1/login.jsp
+
+AutoDatePicker:
+https://www.phptravels.net/
+
+
+users
+/html/body/div[1]/div[3]/div[2]/div/div/form/div[4]/table/thead/tr/th[1]
+/html/body/div[1]/div[3]/div[2]/div/div/form/div[4]/table/tbody/tr[1]/td[1]
+
+enable:/html/body/div[1]/div[3]/div[2]/div/div/form/div[4]/table/tbody/tr[1]/td[5]
+"//*[@id='resultTable']/tbody/tr["+i+"]/td[5]" 
+
+emp info from table:
+header
+/html/body/div[1]/div[3]/div[2]/div/form/div[4]/table/thead/tr/th[2]/a         
+//*[@id='resultTable']/thead/tr/th[2]/a 
+
+body
+/html/body/div[1]/div[3]/div[2]/div/form/div[4]/table/tbody/tr[1]/td[2] ....it works       
+//*[@id='resultTable']/tbody/tr[1]/td[2]
+
+
+
+
+
+
+
+                  

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="5">
+  <test thread-count="5" name="Test">
+    <classes>
+      <class name="testNG_1_2.TC1_Annotation_TestNGBasics"/>
+      <class name="testNG_1_2.TC6_expectedException"/>
+      <class name="testNG_1_2.TC3_Group_GoogleTest"/>
+      <class name="testNG_1_2.TC7_Assertation"/>
+      <class name="testNG_1_2.TC2_Annotation_Priority_GoogleTest"/>
+      <class name="testNG_1_2.TC5_invocationCount"/>
+      <class name="testNG_1_2.TC4_dependsOnMethods"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

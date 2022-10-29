@@ -1,0 +1,40 @@
+//RobotClass//
+>>Robot robot=new Robot();
+
+//KeyboardEvent//
+>public void keyPress(int keycode)
+	robot.keyPress(KeyEvent.VK_DOWN);
+		
+	robot.keyPress(KeyEvent.VK_TAB);
+		
+	robot.keyPress(KeyEvent.VK_ENTER);		
+
+	robot.keyPress(KeyEvent.VK_CONTROL);
+		
+	robot.keyPress(KeyEvent.VK_SHIFT);
+		
+>public void keyRelease(int keycode)
+	robot.keyRelease(KeyEvent.VK_DOWN);
+		
+	robot.keyRelease(KeyEvent.VK_TAB);
+		
+	robot.keyRelease(KeyEvent.VK_ENTER);		
+
+	robot.keyRelease(KeyEvent.VK_CONTROL);
+		
+	robot.keyRelease(KeyEvent.VK_SHIFT);
+//MouseEvent//		
+>public void mouseMove(int x,int y)
+	robot.mouseMove(0,900);
+	
+>public void mousePress(int buttons)
+	robot.mousePress(InputEvent.BUTTON1_DOWN_MASK) //associated with mouse left click
+	robot.mousePress(InputEvent.BUTTON2_DOWN_MASK) //associated with mouse middle click
+	robot.mousePress(InputEvent.BUTTON3_DOWN_MASK) //associated with mouse right click
+	
+>public void mouseRelease(int buttons)
+	robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK) //associated with mouse left click
+	robot.mouseRelease(InputEvent.BUTTON2_DOWN_MASK) //associated with mouse middle click
+	robot.mouseRelease(InputEvent.BUTTON3_DOWN_MASK) //associated with mouse right click
+
+		

@@ -1,0 +1,131 @@
+Phase3:Maintainance
+Git & Github
+Imp:
+Git is a vresion control system used to track changes in computer files.
+It is a tool to manage your code & files history while co-ordinating work remotely on those files with others.
+Github is hosting service for Git repositories.
+Git is a tool,while Github is the service to use Git.
+
+>Local Repo:Every individuals is having is there own local repo,so this local repo are there in there own m/c
+>Everybody will have a local repo,they will keep that code in local repo.
+>Supoose i have Eclipse so i need to install my local repo, 
+>so what i will do is as soon as my completed code i need to first commit that code in local repo
+
+>Remote/Global repo:At the end of the day everybody put that code into Remote/global repo
+
+>Note:From this Local and Remote repo Jenkins will get the code
+
+>Git is a software,which is act as a local repo,so we have install this git software in a local system.
+>and then we can create our a local repo, we can keep our all work code in the Git local repo.
+
+>Github is a Remote/Global repo,but some people also use it as local repo.
+
+>Some other softwares:vss(visual source safe),svn,clearfirst
+
+>Configuratin Management/Version control system means all the code managining in central repo and diff version of code maintain.
+
+>>NotIMP<<
+>Build:Build is automatically install in Devops server that is aslo automated process,
+but when we do some testing,complete end to end testing we have to download this build and install in QA environment.
+>so that app url we have to specify in our automation code,url can be access anywhere,
+>but in app we dont have to configure any path,just we have to install our app,anywhere we can access the app even dev can access same url
+>but Jenkins is not like that jenkins is the software where we need to congigure lot of path inside that so that can not be possible.
+>but app should be install in QA envi because we have the Tester at the end.
+
+>>>Theory<<<
+>>GitGithub:(Ref Screenshot Fig:)
+>Automation Tester Working on local system, in this local system he is having Eclipse software and Git Repo
+>Complte project in Eclipse Workspace(folder):
+>Once some changes are done in our project(create something new or update),
+immediately we need to commit that changes into Git repo.(commit:copy everthing in Git repo with the help of command)
+>Once code in Git repo,we have to again push/send to Github repo
+>also possible reverse action that means we can get the code which is push by someother team member:Github>Git>Eclipse
+(if u join newly that time they will give link to access previously done work for referance)
+
+>How the communication will happen?How we can do that?:>We have certain command to do that:
+>Eclipse and Git there are some prossesing,between Eclipse and git there are some Staging area
+>Stage is also some kind of buffer area or temporary memory area
+>We can not directly send that code into Git from Eclipse
+>communication:Eclipse>Stage>Git
+
+>>Terms:MainActivity:1>Commit  2>push 3>pull
+>Sending the code from Eclipse to Git that action is called as commit action.
+>Sending the code from Git to Github that action is called as push action and reverse that called as pull action.
+>Note:From Git to Eclipse there is no action,this changes is automatically affected in the Eclipse
+but only thing when you CheckIn the code into Git,so we have to do First staging and then we have to do Commit.
+
+>>Process
+>Whatever the changes we are pushing/sending from Eclipse to Git and Github that is called as the CheckIn process
+>Pull the code from Github to Git and Eclipse that is called as CheckOut process
+
+>>>Practical<<<
+>Pre-requisites<
+1)Install Git in your local system
+2)Create an account in Github> http://github.com/
+3)Create one RemoteRepo and keep it Ready:that url we have to create first:later we can push all the file in the same repo
+>Github allocate some space and generate one url as soon as we created some RemoteRepo
+>url:Using url anybody can access our project,and even git also required this url to push all the file into github repo
+>RemoteRepoUrl:https://github.com/ab007k/Java_Eclipse.git
+               https://github.com/ab007k/QspiderPro.git
+3)Workflow:
+WorkingDirectory:UntrackedFile<AddCommand>StagingArea:TrackedFile<CommitCommand>GitRepo:CommitedFile<PushCommand>GitHub:RemoteFile
+
+
+GitCommand:
+>Go to project folder and here we need to open the command prompt:GitBashHere
+1)ExeFirstTime)Create an Empty GitRepo:LocalRepo
+git init
+2)ExeFirstTime)Associate LocalRepo to RemoteRepo(established connection bet them)
+git remote add origin https://github.com/ab007k/Java_Eclipse.git
+
+3)status:what are all files committed or what are all files not committed
+or  we can say what are all files ready to commit in GitRepo
+git status  (Before adding:RedColFolder,After:GreenColorFile)
+
+4)add:workplace to staging:add all our file into staging area
+git add -A (all files will be commited )
+
+5ExeFirstTime)before sending to git repo,1st time we have to add following two command:()
+git config --global user.name "ab007k"
+git config --global user.email "imamol137@gmail.com"
+
+6)commit:staging to Git:commit all the files into git repo
+git commit -m "This is my first commit"
+Note:Commmit msg we have to must specify:because suppose if you want to CheckIn something,
+what an all new changes you are check in that info we have to provide in the commit,
+because somebody else see the file they will know what are all changes done by using  this command.
+
+7)push:pushing the file from git to github
+git push -u origin master //ask username and password
+
+8)Reverse:from Github to Git 
+git pull origin master
+
+9)After pulling i update this file but this changes is not part of your Git & Github,
+now i want to need make this changes>How we can do this now?Again we need to start from begining
+9.1)git status
+9.2)git add -A
+9.3)git status(Just for understanding:if you neglate this no problem)
+9.4)git commit -m "testFile.txt is modified"
+9.5)git push -u origin master
+
+Note:If you really want to remove all of the repo,leaving the only working directory
+then it should be as simple as this: 
+rm -rf .git ->Remove git tracking 
+
+Jenkins:SameWay we have seen previous:
+>NewItem
+>EnterName,Create MavenProject,Ok
+>SourceCodeMangement:>Git:RepoUrl:https://github.com/ab007k/eBanking.git, Credentials:None
+>Build:>RootPOM:pom.xml, Goals and Options:clean install>Apply&Save
+>BuildNow
+
+ 
+
+
+
+
+
+
+
+

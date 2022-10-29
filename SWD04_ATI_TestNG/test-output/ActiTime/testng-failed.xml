@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [ActiTime]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="SanityTest(failed)">
+    <groups>
+      <run>
+        <include name="Regression"/>
+        <exclude name="Sanity"/>
+      </run>
+    </groups>
+    <classes>
+      <class name="com.TestNG04.ActiTime">
+        <methods>
+          <include name="titleTest"/>
+        </methods>
+      </class> <!-- com.TestNG04.ActiTime -->
+    </classes>
+  </test> <!-- SanityTest(failed) -->
+</suite> <!-- Failed suite [ActiTime] -->
